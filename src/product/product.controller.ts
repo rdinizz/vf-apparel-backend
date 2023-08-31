@@ -10,7 +10,6 @@ export class ProductController {
   @Get('getProducts')
   @ApiOperation({ summary: 'Get products' })
   async getProducts(@Query() query?: ProductDTO) {
-    console.log(query);
     return await this.productService.getProducts(query);
   }
 }

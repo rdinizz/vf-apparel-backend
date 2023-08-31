@@ -12,16 +12,27 @@ export class ProductService {
       const { data } = await lastValueFrom(
         this.httpService.get('https://efuktshirts.com/products.json'),
       );
-      console.log(data.products);
+      // the price of the items are on a variants array only, for demonstration purposes, i get the first variant(position === 1)
+      // and i extract the variable outside to make it easier to sort.
+      for (const product of data.products) {
+        const firstVariant = product.variants.filter(
+          (variant) => variant.position === 1,
+        )[0];
+        product.price = firstVariant.price;
+      }
       switch (query.order) {
         case ProductOrder.ascendant:
           return data.products.sort((a, b) => (a.title < b.title ? -1 : 1));
         case ProductOrder.descendant:
           return data.products.sort((a, b) => (a.title < b.title ? 1 : -1));
         case ProductOrder.highestToLowest:
-          break;
+          return data.products.sort((a, b) =>
+            parseFloat(a.price) < parseFloat(b.price) ? 1 : -1,
+          );
         case ProductOrder.lowestToHighest:
-          break;
+          return data.products.sort((a, b) =>
+            parseFloat(a.price) < parseFloat(b.price) ? -1 : 1,
+          );
         default:
           return data.products;
       }
