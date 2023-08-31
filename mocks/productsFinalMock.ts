@@ -2,6 +2,7 @@ export default [
   {
     id: 10822924046,
     title: "A Player Women's Tee 3",
+    price: '20.00',
     variants: [
       {
         id: 45096030669,
@@ -12,7 +13,7 @@ export default [
           height: 1200,
           src: 'https://cdn.shopify.com/s/files/1/0797/7413/products/brand-playon-wtee-white.jpg?v=1571439345',
         },
-        price: '25.00',
+        price: '20.00',
         position: 1,
         product_id: 10822924045,
       },
@@ -33,6 +34,7 @@ export default [
   {
     id: 10822924045,
     title: "Play On Player Women's Tee 2",
+    price: '20.00',
     variants: [
       {
         id: 45096030669,
@@ -64,6 +66,7 @@ export default [
   {
     id: 10822924041,
     title: "Women's Tee",
+    price: '20.00',
     variants: [
       {
         id: 45096030669,
